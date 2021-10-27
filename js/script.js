@@ -25,8 +25,11 @@ const text = [
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 const slider = document.querySelector(".carosello-left");
+const sliderRight = document.querySelector(".carosello-right")
 let contatore = 0;
+let contatoreRight = 0;
 
+// CICLO SLIDER LEFT
 for(let i = 0; i < items.length; i++){
   const box = document.createElement("div");
   box.className = 'box';
@@ -42,8 +45,21 @@ for(let i = 0; i < items.length; i++){
    slider.append(box);
 }
 
-const immagini = document.getElementsByClassName('box');
+// CICLO SLIDER RIGHT
+for(let i = 0; i < items.length; i++){
+  const boxRight = document.createElement("div");
+  boxRight.className = 'box-right';
 
+  if( i === contatoreRight){
+    boxRight.classList.add("active-thumb")
+  }
+  boxRight.innerHTML =
+   `<img src="${items[i]}">`
+   sliderRight.append(boxRight);
+}
+
+
+const immagini = document.getElementsByClassName('box');
 
 prev.addEventListener('click',function(){
   immagini[contatore].classList.remove('active');
@@ -53,13 +69,11 @@ prev.addEventListener('click',function(){
   // una volta che il contatore raggiunge lo 0, torna a lenght-1 al posto di andare sotto lo 0
   if(contatore < 0) contatore = immagini.length - 1;
   immagini[contatore].classList.add('active');
-  immagini[contatore].classList.add('active-thumb');
   console.log(immagini[contatore]);
 });
 
 next.addEventListener('click',function(){
   immagini[contatore].classList.remove('active');
-
   contatore++;
   // una volta raggiunto il limite della lunghezza dell'array ricomincio da 0
   if(contatore > immagini.length - 1) contatore = 0;
