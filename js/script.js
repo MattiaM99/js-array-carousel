@@ -85,8 +85,8 @@ next.addEventListener('click',function(){
 const thumbnail = document.getElementsByClassName('box-right');
 
 prev.addEventListener('click',function(){
-  thumbnail[contatore].classList.add('active-thumb');
-  console.log(thumbnail[contatore]);
+  thumbnail[contatoreRight].classList.remove('active-thumb');
+  console.log(thumbnail[contatoreRight]);
 
   contatoreRight--;
   // una volta che il contatore raggiunge lo 0, torna a lenght-1 al posto di andare sotto lo 0
@@ -96,7 +96,7 @@ prev.addEventListener('click',function(){
 });
 
 next.addEventListener('click',function(){
-  thumbnail[contatoreRight].classList.add('active-thumb');
+  thumbnail[contatoreRight].classList.remove('active-thumb');
   contatoreRight++;
   // una volta raggiunto il limite della lunghezza dell'array ricomincio da 0
   if(contatoreRight > thumbnail.length - 1) contatoreRight = 0;
