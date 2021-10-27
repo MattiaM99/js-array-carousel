@@ -79,3 +79,26 @@ next.addEventListener('click',function(){
   if(contatore > immagini.length - 1) contatore = 0;
   immagini[contatore].classList.add('active');
 });
+
+
+
+const thumbnail = document.getElementsByClassName('box-right');
+
+prev.addEventListener('click',function(){
+  thumbnail[contatore].classList.add('active-thumb');
+  console.log(thumbnail[contatore]);
+
+  contatoreRight--;
+  // una volta che il contatore raggiunge lo 0, torna a lenght-1 al posto di andare sotto lo 0
+  if(contatoreRight < 0) contatoreRight = thumbnail.length - 1;
+  thumbnail[contatoreRight].classList.add('active-thumb');
+  console.log(thumbnail[contatoreRight]);
+});
+
+next.addEventListener('click',function(){
+  thumbnail[contatoreRight].classList.add('active-thumb');
+  contatoreRight++;
+  // una volta raggiunto il limite della lunghezza dell'array ricomincio da 0
+  if(contatoreRight > thumbnail.length - 1) contatoreRight = 0;
+  thumbnail[contatoreRight].classList.add('active-thumb');
+});
