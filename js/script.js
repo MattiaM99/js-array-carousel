@@ -22,3 +22,42 @@ const text = [
   'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
 ]
 
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
+const slider = document.querySelector(".carosello-left");
+let contatore = 0;
+
+for(let i = 0; i < items.length; i++){
+  const box = document.createElement("div");
+  box.className = 'box';
+
+  if( i === contatore){
+    box.classList.add("active")
+  }
+  box.innerHTML = `<img src="${items[i]}">`;
+  slider.append(box);
+}
+
+const immagini = document.getElementsByClassName('box');
+
+
+prev.addEventListener('click',function(){
+  immagini[contatore].classList.remove('active');
+  console.log(immagini[contatore]);
+
+  contatore--;
+  // una volta che il contatore raggiunge lo 0, torna a lenght-1 al posto di andare sotto lo 0
+  if(contatore < 0) contatore = immagini.length - 1;
+  immagini[contatore].classList.add('active');
+  immagini[contatore].classList.add('active-thumb');
+  console.log(immagini[contatore]);
+});
+
+next.addEventListener('click',function(){
+  immagini[contatore].classList.remove('active');
+
+  contatore++;
+  // una volta raggiunto il limite della lunghezza dell'array ricomincio da 0
+  if(contatore > immagini.length - 1) contatore = 0;
+  immagini[contatore].classList.add('active');
+});
