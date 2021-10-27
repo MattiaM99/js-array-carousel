@@ -32,14 +32,24 @@
 /* CAROSELLO */
 .carosello{
   position: relative;
-  width: 20%;
+  width: 19%;
+}
+
+.img-thumb{
+ height: calc(100% / 5);
 }
 
 .active-thumb{
   opacity: 1;
 }
 
-.img-thumb img{
-  width: 100%;
+.img-thumb{
   opacity: 0.5;
 }
+
+.img-thumb img{
+  height: 100%;
+  width: 100%;
+}
+
+
