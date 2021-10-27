@@ -34,8 +34,12 @@ for(let i = 0; i < items.length; i++){
   if( i === contatore){
     box.classList.add("active")
   }
-  box.innerHTML = `<img src="${items[i]}">`;
-  slider.append(box);
+  box.innerHTML =
+   `<img src="${items[i]}">
+   <div class="titolo"><h3>${title[i]}</h3></div>
+   <div class="caption"><p>${text[i]}</p></div>
+   `
+   slider.append(box);
 }
 
 const immagini = document.getElementsByClassName('box');

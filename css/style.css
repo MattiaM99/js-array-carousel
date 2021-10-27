@@ -1,10 +1,29 @@
 
 .box{
+  position: relative;
   display: none;
 }
 
 .active{
   display: block;
+}
+
+.titolo, 
+.caption{
+  text-align: right;
+  position: absolute;
+  right: 0;
+  color: white;
+  font-size: 25px;
+  padding-right: 10px;
+}
+
+.titolo{
+  bottom: 138px;
+}
+
+.caption{
+  bottom: 0;
 }
 
 .box img{
@@ -22,6 +41,7 @@
 .carosello-right{
   position: relative;
 }
+
 
 .prev, 
 .next{
